@@ -1,19 +1,20 @@
 package org.jenkinsci.plugins.workflow.demo;
-
-import org.apache.commons.io.IOUtils;
-import org.junit.Assert;
 import org.junit.Test;
+import org.junit.Ignore;
+import static org.junit.Assert.*;
+
+import sun.misc.IOUtils;
 
 import java.net.URL;
 
 /**
  * Integration test for webapp.
  */
-public class AppTest extends Assert {
+public class AppTest {
     @Test
     public void testApp() throws Exception {
         URL app = getSUT();
-        String contents = IOUtils.toString(app.openStream());
+        String contents = app.openStream().toString();
         assertTrue(contents.contains("Hello Jenkins!"));
 
         // this is supposed to be an integration test,
